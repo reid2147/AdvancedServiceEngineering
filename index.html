@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Favorite Places — 私と、好きな土地たち</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Leaflet 1.9 -->
+  <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
+
+  <!-- ===== Navbar ===== -->
+  <nav id="mainNav" class="navbar navbar-expand-md fixed-top navbar-glass">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#hero">
+        <i class="bi bi-geo-alt-fill text-danger"></i> My Favorite Places
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+              aria-controls="navMenu" aria-expanded="false" aria-label="メニューを開く">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#spots">Spots</a></li>
+          <li class="nav-item"><a class="nav-link" href="#map-section">Map</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <header id="hero" class="hero d-flex align-items-center text-center text-white">
+    <div class="container">
+      <p class="hero-kicker mb-2">SELF INTRODUCTION × MAP</p>
+      <h1 class="display-3 fw-bold">私と、好きな土地たち</h1>
+      <p class="lead mt-3 mb-4">
+        名前や住所の代わりに、心に残っている場所で自己紹介します。<br>
+        カードをクリックすると、地図がその土地まで飛んでいきます。
+      </p>
+      <a href="#spots" class="btn btn-light btn-lg rounded-pill px-4 me-2">
+        <i class="bi bi-collection"></i> スポットを見る
+      </a>
+      <a href="#map-section" class="btn btn-outline-light btn-lg rounded-pill px-4">
+        <i class="bi bi-map"></i> 地図へ
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== About ===== -->
+  <section id="about" class="py-5">
+    <div class="container py-4">
+      <h2 class="section-title text-center mb-2">About Me</h2>
+      <p class="text-center text-secondary mb-5">旅と散歩が好きな大学院生です。</p>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 text-center about-card border-0 shadow-sm">
+            <div class="card-body py-4">
+              <div class="about-icon bg-primary-subtle text-primary mx-auto mb-3">
+                <i class="bi bi-train-front"></i>
+              </div>
+              <h5 class="card-title">旅のスタイル</h5>
+              <p class="card-text text-secondary">
+                鈍行列車でのんびり移動するのが好き。車窓を眺めている時間が一番の贅沢です。
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 text-center about-card border-0 shadow-sm">
+            <div class="card-body py-4">
+              <div class="about-icon bg-success-subtle text-success mx-auto mb-3">
+                <i class="bi bi-camera"></i>
+              </div>
+              <h5 class="card-title">趣味</h5>
+              <p class="card-text text-secondary">
+                風景写真とご当地グルメの食べ歩き。旅先ではまず市場と商店街に行きます。
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 text-center about-card border-0 shadow-sm">
+            <div class="card-body py-4">
+              <div class="about-icon bg-warning-subtle text-warning-emphasis mx-auto mb-3">
+                <i class="bi bi-flag"></i>
+              </div>
+              <h5 class="card-title">目標</h5>
+              <p class="card-text text-secondary">
+                47都道府県制覇まであと少し。次の長期休みは山陰地方を攻めたい。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo carousel -->
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-8">
+          <div id="photoCarousel" class="carousel slide shadow rounded-4 overflow-hidden" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#photoCarousel" data-bs-slide-to="0" class="active" aria-label="スライド1"></button>
+              <button type="button" data-bs-target="#photoCarousel" data-bs-slide-to="1" aria-label="スライド2"></button>
+              <button type="button" data-bs-target="#photoCarousel" data-bs-slide-to="2" aria-label="スライド3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://picsum.photos/seed/travel1/960/480" class="d-block w-100" alt="旅の写真1">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>旅の記録</h5><p>ここは自分の写真に差し替え予定</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://picsum.photos/seed/travel2/960/480" class="d-block w-100" alt="旅の写真2">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>お気に入りの一枚</h5><p>ここも差し替え予定</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://picsum.photos/seed/travel3/960/480" class="d-block w-100" alt="旅の写真3">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>また行きたい場所</h5><p>ここも差し替え予定</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">前へ</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">次へ</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Spots ===== -->
+  <section id="spots" class="py-5 bg-body-tertiary">
+    <div class="container py-4">
+      <h2 class="section-title text-center mb-2">Favorite Spots</h2>
+      <p class="text-center text-secondary mb-5">
+        カードの <span class="badge text-bg-danger"><i class="bi bi-geo-alt"></i> 地図で見る</span> を押すと、下の地図がその場所へ飛びます。
+      </p>
+      <!-- カードは script.js が spots 配列から自動生成 -->
+      <div id="spotCards" class="row g-4"></div>
+    </div>
+  </section>
+
+  <!-- ===== Map ===== -->
+  <section id="map-section" class="py-5">
+    <div class="container py-4">
+      <h2 class="section-title text-center mb-2">Map</h2>
+      <p class="text-center text-secondary mb-4">
+        マーカーをクリックすると紹介文が出ます。右上でタイル(地図デザイン)も切り替えられます。
+      </p>
+      <div class="position-relative rounded-4 overflow-hidden shadow" id="mapWrap">
+        <div id="map"></div>
+        <div class="map-toolbar">
+          <button id="btnFitAll" class="btn btn-sm btn-light shadow-sm me-2">
+            <i class="bi bi-arrows-fullscreen"></i> 全スポット表示
+          </button>
+          <button id="btnLocate" class="btn btn-sm btn-light shadow-sm">
+            <i class="bi bi-crosshair"></i> 現在地
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer text-white py-4">
+    <div class="container text-center">
+      <p class="mb-1 fw-semibold"><i class="bi bi-geo-alt-fill"></i> My Favorite Places</p>
+      <p class="mb-0 small opacity-75">
+        サービス工学特論 最終課題 — Built with Bootstrap 5, Leaflet &amp; OpenStreetMap
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>
