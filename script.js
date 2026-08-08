@@ -3,38 +3,44 @@
    spots 配列を書き換えるだけでカードと地図の両方が更新される
    ========================================= */
 
+// img には images/ 内のファイル名を書く。まだ画像が無い場合は
+// 自動でプレースホルダ(picsum)が表示されるので、あとで写真を置くだけでOK。
 const spots = [
   {
-    name: "兼六園(金沢)",
-    area: "石川県",
-    coords: [36.5613, 136.6626],
-    desc: "日本三名園のひとつ。雪吊りの季節が特に好きで、何度でも行きたくなる場所。",
-    tags: ["庭園", "冬が最高"],
-    img: "https://picsum.photos/seed/kenrokuen/640/400",
-  },
-  {
-    name: "嵐山(京都)",
-    area: "京都府",
-    coords: [35.0094, 135.6668],
-    desc: "竹林の小径を朝早く歩くのがおすすめ。渡月橋から見る夕暮れも忘れられない。",
-    tags: ["竹林", "朝活"],
-    img: "https://picsum.photos/seed/arashiyama/640/400",
-  },
-  {
-    name: "江の島(神奈川)",
-    area: "神奈川県",
-    coords: [35.2996, 139.4804],
-    desc: "初めて一人旅をした思い出の場所。しらす丼と夕日のセットが最強。",
-    tags: ["海", "しらす丼"],
-    img: "https://picsum.photos/seed/enoshima/640/400",
-  },
-  {
-    name: "札幌(北海道)",
+    name: "函館(北海道)",
     area: "北海道",
-    coords: [43.0618, 141.3545],
-    desc: "冬の雪まつりに一度行って以来のファン。味噌ラーメンの食べ比べが恒例。",
-    tags: ["雪まつり", "ラーメン"],
-    img: "https://picsum.photos/seed/sapporo/640/400",
+    coords: [41.7594, 140.7040], // 函館山
+    desc: "函館山からの夜景は一度見たら忘れられない。朝市の海鮮丼も最高だった。",
+    tags: ["夜景", "海鮮丼"],
+    img: "images/hakodate.jpg",
+    placeholder: "https://picsum.photos/seed/hakodate/640/400",
+  },
+  {
+    name: "美ら海水族館(沖縄)",
+    area: "沖縄県",
+    coords: [26.6944, 127.8779],
+    desc: "巨大な水槽を泳ぐジンベエザメは大迫力。周りの海の青さも別格だった。",
+    tags: ["水族館", "ジンベエザメ"],
+    img: "images/churaumi.jpg",
+    placeholder: "https://picsum.photos/seed/churaumi/640/400",
+  },
+  {
+    name: "京都",
+    area: "京都府",
+    coords: [35.0116, 135.7681],
+    desc: "寺社の多さと街の落ち着いた雰囲気が好き。歩いているだけで楽しい街。",
+    tags: ["寺社", "食べ歩き"],
+    img: "images/kyoto.jpg",
+    placeholder: "https://picsum.photos/seed/kyoto/640/400",
+  },
+  {
+    name: "なんば(大阪)",
+    area: "大阪府",
+    coords: [34.6659, 135.5019],
+    desc: "とにかく活気があって食べ物が美味しい。たこ焼きと串カツは外せない。",
+    tags: ["グルメ", "たこ焼き"],
+    img: "images/namba.jpg",
+    placeholder: "https://picsum.photos/seed/namba/640/400",
   },
 ];
 
@@ -90,7 +96,8 @@ spots.forEach((spot, i) => {
   col.className = "col-sm-6 col-lg-3";
   col.innerHTML = `
     <div class="card spot-card h-100 shadow-sm rounded-4">
-      <img src="${spot.img}" class="card-img-top" alt="${spot.name}">
+      <img src="${spot.img}" class="card-img-top" alt="${spot.name}"
+           onerror="this.onerror=null;this.src='${spot.placeholder}';">
       <div class="card-body d-flex flex-column">
         <h5 class="card-title">${spot.name}</h5>
         <div class="mb-2">
