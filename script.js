@@ -12,14 +12,14 @@ const spots = [
     coords: [41.7969, 140.7568],
     img: "images/IMG_1110.jpeg",
     gallery: [
-      "images/IMG_1110.jpeg",
-      "images/IMG_1099.jpeg",
-      "images/IMG_0949.jpeg",
-      "images/IMG_0879.jpeg",
-      "images/IMG_0883.jpeg",
-      "images/IMG_0920.jpeg",
-      "images/IMG_1005.jpeg",
-      "images/IMG_0882.jpeg",
+      { img: "images/IMG_1110.jpeg", loc: "五稜郭公園" },
+      { img: "images/IMG_1099.jpeg", loc: "五稜郭公園" },
+      { img: "images/IMG_0949.jpeg", loc: "函館市内(海鮮)" },
+      { img: "images/IMG_0879.jpeg", loc: "函館アリーナ(RubyKaigi 2026)" },
+      { img: "images/IMG_0883.jpeg", loc: "函館アリーナ(RubyKaigi 2026)" },
+      { img: "images/IMG_0920.jpeg", loc: "函館アリーナ(RubyKaigi 2026)" },
+      { img: "images/IMG_1005.jpeg", loc: "函館アリーナ(RubyKaigi 2026)" },
+      { img: "images/IMG_0882.jpeg", loc: "函館アリーナ(RubyKaigi 2026)" },
     ],
   },
   {
@@ -28,11 +28,11 @@ const spots = [
     coords: [26.6944, 127.8779],
     img: "images/IMG_2291.jpeg",
     gallery: [
-      "images/IMG_2291.jpeg",
-      "images/IMG_2295.jpeg",
-      "images/IMG_2330.jpeg",
-      "images/IMG_2323.jpeg",
-      "images/IMG_2301.jpeg",
+      { img: "images/IMG_2291.jpeg", loc: "沖縄美ら海水族館" },
+      { img: "images/IMG_2295.jpeg", loc: "沖縄美ら海水族館" },
+      { img: "images/IMG_2330.jpeg", loc: "沖縄美ら海水族館" },
+      { img: "images/IMG_2323.jpeg", loc: "沖縄美ら海水族館" },
+      { img: "images/IMG_2301.jpeg", loc: "沖縄美ら海水族館" },
     ],
   },
   {
@@ -41,11 +41,11 @@ const spots = [
     coords: [34.9949, 135.7850],
     img: "images/IMG_0481.jpeg",
     gallery: [
-      "images/IMG_0481.jpeg",
-      "images/IMG_0513.jpeg",
-      "images/IMG_0538.jpeg",
-      "images/IMG_0533.jpeg",
-      "images/IMG_0476.jpeg",
+      { img: "images/IMG_0481.jpeg", loc: "京都市内(庭園)" },
+      { img: "images/IMG_0513.jpeg", loc: "清水寺" },
+      { img: "images/IMG_0538.jpeg", loc: "清水寺" },
+      { img: "images/IMG_0533.jpeg", loc: "京都市内(寺院)" },
+      { img: "images/IMG_0476.jpeg", loc: "JR京都駅" },
     ],
   },
   {
@@ -54,11 +54,11 @@ const spots = [
     coords: [34.6686, 135.5010],
     img: "images/IMG_9403.jpeg",
     gallery: [
-      "images/IMG_9403.jpeg",
-      "images/IMG_9245.jpeg",
-      "images/IMG_9348.jpeg",
-      "images/IMG_9266.jpeg",
-      "images/IMG_9284.jpeg",
+      { img: "images/IMG_9403.jpeg", loc: "道頓堀" },
+      { img: "images/IMG_9245.jpeg", loc: "近鉄(大阪)" },
+      { img: "images/IMG_9348.jpeg", loc: "水族館(大阪)" },
+      { img: "images/IMG_9266.jpeg", loc: "水族館(大阪)" },
+      { img: "images/IMG_9284.jpeg", loc: "水族館(大阪)" },
     ],
   },
 ];
@@ -157,11 +157,12 @@ function openGallery(spot) {
   inner.innerHTML = "";
   indicators.innerHTML = "";
 
-  spot.gallery.forEach((src, idx) => {
+  spot.gallery.forEach((photo, idx) => {
     inner.insertAdjacentHTML(
       "beforeend",
       `<div class="carousel-item ${idx === 0 ? "active" : ""}">
-         <img src="${src}" class="d-block w-100 gallery-img" alt="${spot.name}の写真${idx + 1}">
+         <img src="${photo.img}" class="d-block w-100 gallery-img" alt="${photo.loc || spot.name}">
+         <div class="gallery-loc"><i class="bi bi-geo-alt-fill"></i> ${photo.loc || ""}</div>
        </div>`
     );
     indicators.insertAdjacentHTML(
