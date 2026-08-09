@@ -9,11 +9,21 @@ const spots = [
   {
     name: "函館(北海道)",
     area: "北海道",
-    coords: [41.7594, 140.7040], // 函館山
-    desc: "函館山からの夜景は一度見たら忘れられない。朝市の海鮮丼も最高だった。",
-    tags: ["夜景", "海鮮丼"],
-    img: "images/hakodate.jpg",
+    coords: [41.7969, 140.7568], // 五稜郭公園
+    desc: "技術カンファレンス「RubyKaigi 2026」参加のために訪問。ちょうど五稜郭の桜が満開で、海鮮も最高だった思い出深い旅。",
+    tags: ["五稜郭の桜", "RubyKaigi", "海鮮"],
+    img: "images/IMG_1110.jpeg",
     placeholder: "https://picsum.photos/seed/hakodate/640/400",
+    gallery: [
+      { img: "images/IMG_1110.jpeg", caption: "五稜郭タワーと満開の桜" },
+      { img: "images/IMG_1099.jpeg", caption: "五稜郭公園を彩る桜並木" },
+      { img: "images/IMG_0949.jpeg", caption: "新鮮な海の幸(イカ刺し)" },
+      { img: "images/IMG_0879.jpeg", caption: "RubyKaigi 2026 — 参加者の出身地マップ" },
+      { img: "images/IMG_0883.jpeg", caption: "ずらりと並んだスポンサー" },
+      { img: "images/IMG_0920.jpeg", caption: "セッションの様子" },
+      { img: "images/IMG_1005.jpeg", caption: "ステージ上の登壇者たち" },
+      { img: "images/IMG_0882.jpeg", caption: "RubyKaigi 2026 ノベルティTシャツ" },
+    ],
   },
   {
     name: "美ら海水族館(沖縄)",
