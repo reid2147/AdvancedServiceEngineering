@@ -67,33 +67,10 @@ const spots = [
 
 const map = L.map("map", { scrollWheelZoom: false });
 
-const osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-});
-
-const gsiPale = L.tileLayer(
-  "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
-  {
-    maxZoom: 18,
-    attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院</a>',
-  }
-);
-
-const gsiPhoto = L.tileLayer(
-  "https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg",
-  {
-    maxZoom: 18,
-    attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院</a>',
-  }
-);
-
-osm.addTo(map);
-L.control.layers(
-  { OpenStreetMap: osm, "国土地理院(淡色)": gsiPale, "航空写真": gsiPhoto },
-  null,
-  { position: "topright", collapsed: true }
-).addTo(map);
+}).addTo(map);
 L.control.scale({ imperial: false }).addTo(map);
 
 /* ---------- markers & cards ---------- */
@@ -201,19 +178,4 @@ function openGallery(spot) {
 
 document.getElementById("btnFitAll").addEventListener("click", () => {
   map.flyToBounds(bounds, { padding: [40, 40], duration: 1.2 });
-});
-
-document.getElementById("btnLocate").addEventListener("click", () => {
-  map.locate({ setView: true, maxZoom: 14 });
-});
-
-map.on("locationfound", (e) => {
-  L.circleMarker(e.latlng, { radius: 8, color: "#e63946" })
-    .addTo(map)
-    .bindPopup("いまここ!")
-    .openPopup();
-});
-
-map.on("locationerror", () => {
-  alert("現在地を取得できませんでした(位置情報の許可が必要です)");
 });

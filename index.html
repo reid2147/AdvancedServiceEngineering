@@ -12,7 +12,7 @@
   <!-- Leaflet 1.9 -->
   <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
   <!-- Custom CSS -->
-  <link href="style.css" rel="stylesheet">
+  <link href="style.css?v=3" rel="stylesheet">
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
@@ -60,16 +60,13 @@
     <div class="container py-4">
       <h2 class="section-title text-center mb-2">Map</h2>
       <p class="text-center text-secondary mb-4">
-        マーカーをクリックして <span class="badge text-bg-primary"><i class="bi bi-images"></i> 写真を見る</span> を押すと、その土地の写真が開きます。右上でタイル(地図デザイン)も切り替えられます。
+        マーカーをクリックして <span class="badge text-bg-primary"><i class="bi bi-images"></i> 写真を見る</span> を押すと、その土地の写真が開きます。
       </p>
       <div class="position-relative rounded-4 overflow-hidden shadow" id="mapWrap">
         <div id="map"></div>
         <div class="map-toolbar">
-          <button id="btnFitAll" class="btn btn-sm btn-light shadow-sm me-2">
+          <button id="btnFitAll" class="btn btn-sm btn-light shadow-sm">
             <i class="bi bi-arrows-fullscreen"></i> 全スポット表示
-          </button>
-          <button id="btnLocate" class="btn btn-sm btn-light shadow-sm">
-            <i class="bi bi-crosshair"></i> 現在地
           </button>
         </div>
       </div>
@@ -183,6 +180,6 @@
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <!-- Custom JS -->
-  <script src="script.js"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>
