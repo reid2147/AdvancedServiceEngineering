@@ -44,7 +44,7 @@ const spots = [
       { img: "images/IMG_0481.jpeg", loc: "京都市内(庭園)" },
       { img: "images/IMG_0513.jpeg", loc: "清水寺" },
       { img: "images/IMG_0538.jpeg", loc: "清水寺" },
-      { img: "images/IMG_0533.jpeg", loc: "京都市内(寺院)" },
+      { img: "images/IMG_0533.jpeg", loc: "清水寺" },
       { img: "images/IMG_0476.jpeg", loc: "JR京都駅" },
     ],
   },
