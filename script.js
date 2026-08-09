@@ -21,8 +21,15 @@ const spots = [
     coords: [26.6944, 127.8779],
     desc: "巨大な水槽を泳ぐジンベエザメは大迫力。周りの海の青さも別格だった。",
     tags: ["水族館", "ジンベエザメ"],
-    img: "images/churaumi.jpg",
+    img: "images/IMG_2291.jpeg",
     placeholder: "https://picsum.photos/seed/churaumi/640/400",
+    gallery: [
+      { img: "images/IMG_2291.jpeg", caption: "黒潮の海 — ジンベエザメ" },
+      { img: "images/IMG_2295.jpeg", caption: "優雅に泳ぐマンタ" },
+      { img: "images/IMG_2330.jpeg", caption: "ゆらゆら揺れるチンアナゴ" },
+      { img: "images/IMG_2323.jpeg", caption: "堂々としたイセエビ" },
+      { img: "images/IMG_2301.jpeg", caption: "館内カフェから望むエメラルドの海" },
+    ],
   },
   {
     name: "京都",
@@ -105,9 +112,18 @@ spots.forEach((spot, i) => {
           ${spot.tags.map((t) => `<span class="badge text-bg-info">${t}</span>`).join(" ")}
         </div>
         <p class="card-text text-secondary small flex-grow-1">${spot.desc}</p>
-        <button class="btn btn-danger btn-sm rounded-pill mt-auto" data-index="${i}">
-          <i class="bi bi-geo-alt"></i> 地図で見る
-        </button>
+        <div class="d-flex gap-2 mt-auto">
+          <button class="btn btn-danger btn-sm rounded-pill flex-fill js-map-btn" data-index="${i}">
+            <i class="bi bi-geo-alt"></i> 地図で見る
+          </button>
+          ${
+            spot.gallery
+              ? `<button class="btn btn-outline-primary btn-sm rounded-pill flex-fill js-gallery-btn" data-index="${i}">
+                   <i class="bi bi-images"></i> 写真 ${spot.gallery.length}枚
+                 </button>`
+              : ""
+          }
+        </div>
       </div>
     </div>`;
   cardsRow.appendChild(col);
@@ -117,15 +133,55 @@ spots.forEach((spot, i) => {
 const bounds = L.latLngBounds(spots.map((s) => s.coords));
 map.fitBounds(bounds, { padding: [40, 40] });
 
-// カードのボタン → 地図へフライ
+// カードのボタン → 地図へフライ / ギャラリーを開く
 cardsRow.addEventListener("click", (e) => {
-  const btn = e.target.closest("button[data-index]");
-  if (!btn) return;
-  const i = Number(btn.dataset.index);
-  document.getElementById("map-section").scrollIntoView({ behavior: "smooth" });
-  map.flyTo(spots[i].coords, 14, { duration: 1.6 });
-  markers[i].openPopup();
+  const mapBtn = e.target.closest(".js-map-btn");
+  if (mapBtn) {
+    const i = Number(mapBtn.dataset.index);
+    document.getElementById("map-section").scrollIntoView({ behavior: "smooth" });
+    map.flyTo(spots[i].coords, 14, { duration: 1.6 });
+    markers[i].openPopup();
+    return;
+  }
+  const galBtn = e.target.closest(".js-gallery-btn");
+  if (galBtn) {
+    openGallery(spots[Number(galBtn.dataset.index)]);
+  }
 });
+
+/* ---------- photo gallery modal ---------- */
+
+const galleryModal = new bootstrap.Modal(document.getElementById("galleryModal"));
+
+function openGallery(spot) {
+  if (!spot.gallery) return;
+  document.getElementById("galleryModalTitle").innerHTML =
+    `<i class="bi bi-images"></i> ${spot.name} の写真`;
+
+  const inner = document.getElementById("galleryInner");
+  const indicators = document.getElementById("galleryIndicators");
+  inner.innerHTML = "";
+  indicators.innerHTML = "";
+
+  spot.gallery.forEach((g, idx) => {
+    inner.insertAdjacentHTML(
+      "beforeend",
+      `<div class="carousel-item ${idx === 0 ? "active" : ""}">
+         <img src="${g.img}" class="d-block w-100 gallery-img" alt="${g.caption}">
+         <div class="carousel-caption">
+           <span class="badge text-bg-dark fs-6">${g.caption}</span>
+         </div>
+       </div>`
+    );
+    indicators.insertAdjacentHTML(
+      "beforeend",
+      `<button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="${idx}"
+         ${idx === 0 ? 'class="active" aria-current="true"' : ""} aria-label="写真${idx + 1}"></button>`
+    );
+  });
+
+  galleryModal.show();
+}
 
 /* ---------- toolbar buttons ---------- */
 

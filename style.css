@@ -124,6 +124,19 @@ body {
   transform: scale(1.05);
 }
 
+/* ---------- Carousel (About) ---------- */
+.carousel-photo {
+  height: 460px;
+  object-fit: cover;
+}
+
+/* ---------- Gallery modal ---------- */
+.gallery-img {
+  max-height: 78vh;
+  object-fit: contain;
+  background: #000;
+}
+
 /* ---------- Map ---------- */
 #map {
   height: 560px;

@@ -114,24 +114,21 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="images/hakodate.jpg" class="d-block w-100" alt="函館"
-                     onerror="this.onerror=null;this.src='https://picsum.photos/seed/hakodate/960/480';">
+                <img src="images/IMG_2291.jpeg" class="d-block w-100 carousel-photo" alt="ジンベエザメ">
                 <div class="carousel-caption d-none d-md-block">
-                  <h5>函館の夜景</h5><p>函館山からの眺め</p>
+                  <h5>美ら海水族館</h5><p>黒潮の海を泳ぐジンベエザメ</p>
                 </div>
               </div>
               <div class="carousel-item">
-                <img src="images/churaumi.jpg" class="d-block w-100" alt="美ら海水族館"
-                     onerror="this.onerror=null;this.src='https://picsum.photos/seed/churaumi/960/480';">
+                <img src="images/IMG_2295.jpeg" class="d-block w-100 carousel-photo" alt="マンタ">
                 <div class="carousel-caption d-none d-md-block">
-                  <h5>美ら海水族館</h5><p>ジンベエザメの大水槽</p>
+                  <h5>優雅なマンタ</h5><p>大水槽を舞うように泳ぐ</p>
                 </div>
               </div>
               <div class="carousel-item">
-                <img src="images/namba.jpg" class="d-block w-100" alt="なんば"
-                     onerror="this.onerror=null;this.src='https://picsum.photos/seed/namba/960/480';">
+                <img src="images/IMG_2301.jpeg" class="d-block w-100 carousel-photo" alt="沖縄の海">
                 <div class="carousel-caption d-none d-md-block">
-                  <h5>大阪・なんば</h5><p>食い倒れの街</p>
+                  <h5>沖縄の海</h5><p>館内カフェから望むエメラルドブルー</p>
                 </div>
               </div>
             </div>
@@ -191,6 +188,30 @@
       </p>
     </div>
   </footer>
+
+  <!-- ===== Gallery Modal (中身は script.js が生成) ===== -->
+  <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true" aria-labelledby="galleryModalTitle">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="galleryModalTitle"><i class="bi bi-images"></i> 写真ギャラリー</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
+        </div>
+        <div class="modal-body p-0 bg-dark">
+          <div id="galleryCarousel" class="carousel slide">
+            <div class="carousel-indicators" id="galleryIndicators"></div>
+            <div class="carousel-inner" id="galleryInner"></div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">前へ</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">次へ</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
