@@ -105,7 +105,10 @@ spots.forEach((spot, i) => {
   // marker + popup
   const marker = L.marker(spot.coords).addTo(map).bindPopup(
     `<h6 class="fw-bold mb-1">${spot.name}</h6>
-     <span class="badge text-bg-secondary">${spot.area}</span>`
+     <div class="mb-2"><span class="badge text-bg-secondary">${spot.area}</span></div>
+     <button class="btn btn-primary btn-sm rounded-pill js-popup-gallery" data-index="${i}">
+       <i class="bi bi-images"></i> 写真を見る
+     </button>`
   );
   markers.push(marker);
 
@@ -155,6 +158,12 @@ cardsRow.addEventListener("click", (e) => {
   if (galBtn) {
     openGallery(spots[Number(galBtn.dataset.index)]);
   }
+});
+
+// 地図のポップアップ内「写真を見る」→ ギャラリーを開く
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".js-popup-gallery");
+  if (btn) openGallery(spots[Number(btn.dataset.index)]);
 });
 
 /* ---------- photo gallery modal ---------- */
