@@ -3,74 +3,62 @@
    spots 配列を書き換えるだけでカードと地図の両方が更新される
    ========================================= */
 
-// img には images/ 内のファイル名を書く。まだ画像が無い場合は
-// 自動でプレースホルダ(picsum)が表示されるので、あとで写真を置くだけでOK。
+// 各スポットは「地名(本人が挙げたもの)＋本人が撮った写真」だけで構成。
+// img = カード表紙, gallery = 写真一覧(すべて本人撮影)。
 const spots = [
   {
     name: "函館(北海道)",
     area: "北海道",
-    coords: [41.7969, 140.7568], // 五稜郭公園
-    desc: "技術カンファレンス「RubyKaigi 2026」参加のために訪問。ちょうど五稜郭の桜が満開で、海鮮も最高だった思い出深い旅。",
-    tags: ["五稜郭の桜", "RubyKaigi", "海鮮"],
+    coords: [41.7969, 140.7568],
     img: "images/IMG_1110.jpeg",
-    placeholder: "https://picsum.photos/seed/hakodate/640/400",
     gallery: [
-      { img: "images/IMG_1110.jpeg", caption: "五稜郭タワーと満開の桜" },
-      { img: "images/IMG_1099.jpeg", caption: "五稜郭公園を彩る桜並木" },
-      { img: "images/IMG_0949.jpeg", caption: "新鮮な海の幸(イカ刺し)" },
-      { img: "images/IMG_0879.jpeg", caption: "RubyKaigi 2026 — 参加者の出身地マップ" },
-      { img: "images/IMG_0883.jpeg", caption: "ずらりと並んだスポンサー" },
-      { img: "images/IMG_0920.jpeg", caption: "セッションの様子" },
-      { img: "images/IMG_1005.jpeg", caption: "ステージ上の登壇者たち" },
-      { img: "images/IMG_0882.jpeg", caption: "RubyKaigi 2026 ノベルティTシャツ" },
+      "images/IMG_1110.jpeg",
+      "images/IMG_1099.jpeg",
+      "images/IMG_0949.jpeg",
+      "images/IMG_0879.jpeg",
+      "images/IMG_0883.jpeg",
+      "images/IMG_0920.jpeg",
+      "images/IMG_1005.jpeg",
+      "images/IMG_0882.jpeg",
     ],
   },
   {
     name: "美ら海水族館(沖縄)",
     area: "沖縄県",
     coords: [26.6944, 127.8779],
-    desc: "巨大な水槽を泳ぐジンベエザメは大迫力。周りの海の青さも別格だった。",
-    tags: ["水族館", "ジンベエザメ"],
     img: "images/IMG_2291.jpeg",
-    placeholder: "https://picsum.photos/seed/churaumi/640/400",
     gallery: [
-      { img: "images/IMG_2291.jpeg", caption: "黒潮の海 — ジンベエザメ" },
-      { img: "images/IMG_2295.jpeg", caption: "優雅に泳ぐマンタ" },
-      { img: "images/IMG_2330.jpeg", caption: "ゆらゆら揺れるチンアナゴ" },
-      { img: "images/IMG_2323.jpeg", caption: "堂々としたイセエビ" },
-      { img: "images/IMG_2301.jpeg", caption: "館内カフェから望むエメラルドの海" },
+      "images/IMG_2291.jpeg",
+      "images/IMG_2295.jpeg",
+      "images/IMG_2330.jpeg",
+      "images/IMG_2323.jpeg",
+      "images/IMG_2301.jpeg",
     ],
   },
   {
     name: "京都",
     area: "京都府",
-    coords: [34.9949, 135.7850], // 清水寺
-    desc: "寺社の多さと街の落ち着いた雰囲気が好き。清水寺や庭園を巡りながら歩くだけで楽しい街。",
-    tags: ["寺社", "庭園", "清水寺"],
+    coords: [34.9949, 135.7850],
     img: "images/IMG_0481.jpeg",
-    placeholder: "https://picsum.photos/seed/kyoto/640/400",
     gallery: [
-      { img: "images/IMG_0481.jpeg", caption: "趣のある日本庭園" },
-      { img: "images/IMG_0513.jpeg", caption: "清水寺の舞台" },
-      { img: "images/IMG_0538.jpeg", caption: "山あいに佇む古刹" },
-      { img: "images/IMG_0533.jpeg", caption: "荘厳な黄金の仏像" },
-      { img: "images/IMG_0476.jpeg", caption: "近未来的なJR京都駅の駅舎" },
+      "images/IMG_0481.jpeg",
+      "images/IMG_0513.jpeg",
+      "images/IMG_0538.jpeg",
+      "images/IMG_0533.jpeg",
+      "images/IMG_0476.jpeg",
     ],
   },
   {
     name: "なんば(大阪)",
     area: "大阪府",
-    coords: [34.6686, 135.5010], // 道頓堀
-    desc: "道頓堀のきらびやかなネオンと活気が大阪らしい。海遊館ではマンボウやアシカにも会えた、遊びどころ満載の旅。",
-    tags: ["道頓堀", "海遊館", "夜景"],
+    coords: [34.6686, 135.5010],
     img: "images/IMG_9403.jpeg",
-    placeholder: "https://picsum.photos/seed/namba/640/400",
     gallery: [
-      { img: "images/IMG_9403.jpeg", caption: "道頓堀のきらめくネオン街" },
-      { img: "images/IMG_9245.jpeg", caption: "近鉄特急「ひのとり」で大阪へ" },
-      { img: "images/IMG_9348.jpeg", caption: "海遊館のユニークなマンボウ" },
-      { img: "images/IMG_9266.jpeg", caption: "水中を優雅に泳ぐアシカ" },
-      { img: "images/IMG_9284.jpeg", caption: "岩の上でくつろぐアシカ" },
+      "images/IMG_9403.jpeg",
+      "images/IMG_9245.jpeg",
+      "images/IMG_9348.jpeg",
+      "images/IMG_9266.jpeg",
+      "images/IMG_9284.jpeg",
     ],
   },
 ];
@@ -116,9 +104,8 @@ const cardsRow = document.getElementById("spotCards");
 spots.forEach((spot, i) => {
   // marker + popup
   const marker = L.marker(spot.coords).addTo(map).bindPopup(
-    `<h6 class="fw-bold">${spot.name}</h6>
-     <span class="badge text-bg-secondary mb-1">${spot.area}</span>
-     <p class="mb-0 small">${spot.desc}</p>`
+    `<h6 class="fw-bold mb-1">${spot.name}</h6>
+     <span class="badge text-bg-secondary">${spot.area}</span>`
   );
   markers.push(marker);
 
@@ -127,15 +114,12 @@ spots.forEach((spot, i) => {
   col.className = "col-sm-6 col-lg-3";
   col.innerHTML = `
     <div class="card spot-card h-100 shadow-sm rounded-4">
-      <img src="${spot.img}" class="card-img-top" alt="${spot.name}"
-           onerror="this.onerror=null;this.src='${spot.placeholder}';">
+      <img src="${spot.img}" class="card-img-top" alt="${spot.name}">
       <div class="card-body d-flex flex-column">
         <h5 class="card-title">${spot.name}</h5>
-        <div class="mb-2">
+        <div class="mb-3">
           <span class="badge text-bg-secondary">${spot.area}</span>
-          ${spot.tags.map((t) => `<span class="badge text-bg-info">${t}</span>`).join(" ")}
         </div>
-        <p class="card-text text-secondary small flex-grow-1">${spot.desc}</p>
         <div class="d-flex gap-2 mt-auto">
           <button class="btn btn-danger btn-sm rounded-pill flex-fill js-map-btn" data-index="${i}">
             <i class="bi bi-geo-alt"></i> 地図で見る
@@ -187,14 +171,11 @@ function openGallery(spot) {
   inner.innerHTML = "";
   indicators.innerHTML = "";
 
-  spot.gallery.forEach((g, idx) => {
+  spot.gallery.forEach((src, idx) => {
     inner.insertAdjacentHTML(
       "beforeend",
       `<div class="carousel-item ${idx === 0 ? "active" : ""}">
-         <img src="${g.img}" class="d-block w-100 gallery-img" alt="${g.caption}">
-         <div class="carousel-caption">
-           <span class="badge text-bg-dark fs-6">${g.caption}</span>
-         </div>
+         <img src="${src}" class="d-block w-100 gallery-img" alt="${spot.name}の写真${idx + 1}">
        </div>`
     );
     indicators.insertAdjacentHTML(
