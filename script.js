@@ -44,11 +44,18 @@ const spots = [
   {
     name: "京都",
     area: "京都府",
-    coords: [35.0116, 135.7681],
-    desc: "寺社の多さと街の落ち着いた雰囲気が好き。歩いているだけで楽しい街。",
-    tags: ["寺社", "食べ歩き"],
-    img: "images/kyoto.jpg",
+    coords: [34.9949, 135.7850], // 清水寺
+    desc: "寺社の多さと街の落ち着いた雰囲気が好き。清水寺や庭園を巡りながら歩くだけで楽しい街。",
+    tags: ["寺社", "庭園", "清水寺"],
+    img: "images/IMG_0481.jpeg",
     placeholder: "https://picsum.photos/seed/kyoto/640/400",
+    gallery: [
+      { img: "images/IMG_0481.jpeg", caption: "趣のある日本庭園" },
+      { img: "images/IMG_0513.jpeg", caption: "清水寺の舞台" },
+      { img: "images/IMG_0538.jpeg", caption: "山あいに佇む古刹" },
+      { img: "images/IMG_0533.jpeg", caption: "荘厳な黄金の仏像" },
+      { img: "images/IMG_0476.jpeg", caption: "近未来的なJR京都駅の駅舎" },
+    ],
   },
   {
     name: "なんば(大阪)",
