@@ -64,6 +64,17 @@ body {
   opacity: 0.85;
 }
 
+/* ---------- Author card (hero) ---------- */
+.author-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  border-radius: 0.9rem;
+}
+
+.author-card .card-body {
+  color: #1e3c72;
+}
+
 /* ---------- Sections ---------- */
 .section-title {
   font-weight: 700;

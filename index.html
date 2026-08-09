@@ -19,7 +19,7 @@
   <!-- Leaflet 1.9 -->
   <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
   <!-- Custom CSS -->
-  <link href="style.css?v=5" rel="stylesheet">
+  <link href="style.css?v=6" rel="stylesheet">
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
@@ -53,10 +53,17 @@
         函館・沖縄・京都・大阪で撮った写真を、地図とあわせて紹介します。<br>
         カードをクリックすると、地図がその土地まで飛んでいきます。
       </p>
-      <p class="mb-4">
-        <span class="badge text-bg-light text-dark fs-6 me-2">氏名 岸田 龍</span>
-        <span class="badge text-bg-light text-dark fs-6">学籍番号 38414092</span>
-      </p>
+      <div class="row justify-content-center mb-4">
+        <div class="col-sm-9 col-md-7 col-lg-5">
+          <div class="card border-0 shadow author-card text-start">
+            <div class="card-body">
+              <p class="mb-1"><i class="bi bi-person-fill text-danger"></i> <strong>製作者：</strong>岸田 龍</p>
+              <p class="mb-1"><i class="bi bi-card-text text-danger"></i> <strong>学籍番号：</strong>38414092</p>
+              <p class="mb-0"><i class="bi bi-calendar-event text-danger"></i> <strong>更新日：</strong><span id="lastUpdated">—</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
       <a href="#spots" class="btn btn-light btn-lg rounded-pill px-4 me-2">
         <i class="bi bi-collection"></i> スポットを見る
       </a>
@@ -156,7 +163,6 @@
   <footer class="footer text-white py-4">
     <div class="container text-center">
       <p class="mb-1 fw-semibold"><i class="bi bi-geo-alt-fill"></i> 訪れた土地たち</p>
-      <p class="mb-1">氏名：岸田 龍 ／ 学籍番号：38414092</p>
       <p class="mb-0 small opacity-75">
         サービス工学特論 最終課題 — Built with Bootstrap 5, Leaflet &amp; OpenStreetMap
       </p>
@@ -192,6 +198,6 @@
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <!-- Custom JS -->
-  <script src="script.js?v=5"></script>
+  <script src="script.js?v=6"></script>
 </body>
 </html>

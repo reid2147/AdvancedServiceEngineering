@@ -63,6 +63,16 @@ const spots = [
   },
 ];
 
+/* ---------- 更新日(ファイルの最終更新から自動表示) ---------- */
+(() => {
+  const el = document.getElementById("lastUpdated");
+  if (!el) return;
+  const d = new Date(document.lastModified);
+  el.textContent = isNaN(d.getTime())
+    ? "—"
+    : `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+})();
+
 /* ---------- Leaflet map ---------- */
 
 const map = L.map("map", { scrollWheelZoom: false });
