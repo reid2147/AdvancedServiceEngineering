@@ -60,11 +60,18 @@ const spots = [
   {
     name: "なんば(大阪)",
     area: "大阪府",
-    coords: [34.6659, 135.5019],
-    desc: "とにかく活気があって食べ物が美味しい。たこ焼きと串カツは外せない。",
-    tags: ["グルメ", "たこ焼き"],
-    img: "images/namba.jpg",
+    coords: [34.6686, 135.5010], // 道頓堀
+    desc: "道頓堀のきらびやかなネオンと活気が大阪らしい。海遊館ではマンボウやアシカにも会えた、遊びどころ満載の旅。",
+    tags: ["道頓堀", "海遊館", "夜景"],
+    img: "images/IMG_9403.jpeg",
     placeholder: "https://picsum.photos/seed/namba/640/400",
+    gallery: [
+      { img: "images/IMG_9403.jpeg", caption: "道頓堀のきらめくネオン街" },
+      { img: "images/IMG_9245.jpeg", caption: "近鉄特急「ひのとり」で大阪へ" },
+      { img: "images/IMG_9348.jpeg", caption: "海遊館のユニークなマンボウ" },
+      { img: "images/IMG_9266.jpeg", caption: "水中を優雅に泳ぐアシカ" },
+      { img: "images/IMG_9284.jpeg", caption: "岩の上でくつろぐアシカ" },
+    ],
   },
 ];
 
